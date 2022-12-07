@@ -13,7 +13,7 @@ def send_welcome(message):
     bot.reply_to(message, f'Приветствую тебя, <b>{message.from_user.first_name}</b>!\n'
                           'Предлагаю сыграть в игру.\n'
                           'Ты получишь небольшую предысторию и варианты действий. '
-                          'Помни! - каждое действие влияет на дальнейший ход истории.', reply_markup=markup)
+                          'Помни! Каждое действие влияет на дальнейший ход истории.', reply_markup=markup)
 
 
 @bot.message_handler(regexp='НАЧАТЬ ИГРУ')
@@ -23,7 +23,7 @@ def start_game(message):
     second_choice = types.KeyboardButton('Хотелось что-нибудь интересное, '
                                          'не то, что обычно покупаешь.')
     markup.add(first_choice, second_choice)
-    bot.reply_to(message, '<i>Звук из репродуктора: "Добро пожаловать в <b>"Пяторочку"</b>".\n'
+    bot.reply_to(message, '<i>Звук из репродуктора: "Добро пожаловать в <b>"Пятёрочку"</b>".\n'
                           'Кажется, ты пришел в себя и обнаружил, что находишься в магазине. '
                           'В голове небольшой бардак, но все более-менее встаёт на свои места.</i>\n'
                           '- Однако, зачем же... Зачем я здесь? - <i>спускается мысль\nоткуда-то изнутри. '
@@ -164,7 +164,7 @@ def game(message):
     audio = open('pjaterka.mp3', 'rb')
     bot.send_audio(message.from_user.id, audio)
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    choice = types.KeyboardButton('Начать заного.')
+    choice = types.KeyboardButton('Начать заново.')
     markup.add(choice)
     bot.reply_to(message, '<i>И вот у тебя уже есть все что нужно. До прекрасного ужина осталось всего ничего. '
                           'Ты проходишь на кассу, девушка улыбается тебе и радушно приветствует. Пока она пробивает '
@@ -190,7 +190,7 @@ def game(message):
 @bot.message_handler(regexp='Тьфу. Это уже перебор!')
 def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    first_choice = types.KeyboardButton('Начать заного.')
+    first_choice = types.KeyboardButton('Начать заново.')
     markup.add(first_choice)
     audio = open('wolfgang.mp3', 'rb')
     bot.send_audio(message.from_user.id, audio)
@@ -221,7 +221,7 @@ def game(message):
 @bot.message_handler(regexp='Да, Господь. Я пойду разносить молву о тыкве и чесноке.')
 def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    first_choice = types.KeyboardButton('Начать заного.')
+    first_choice = types.KeyboardButton('Начать заново.')
     markup.add(first_choice)
     bot.reply_to(message, '<i>Узрев Его и вкусив плоть и кровь Его, не оплатив покупки, ты выходишь из магазина '
                           'и там, за его дверьми, начинается твой долгий путь...</i>', reply_markup=markup)
@@ -230,7 +230,7 @@ def game(message):
 @bot.message_handler(regexp='Закричать и упасть в предсмертной агонии.')
 def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    first_choice = types.KeyboardButton('Начать заного.')
+    first_choice = types.KeyboardButton('Начать заново.')
     markup.add(first_choice)
     audio = open('wolfgang.mp3', 'rb')
     bot.send_audio(message.from_user.id, audio)
@@ -269,7 +269,7 @@ def game(message):
 @bot.message_handler(regexp='Ну тут уж извиняй, теперь не убежать.')
 def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    first_choice = types.KeyboardButton('Начать заного.')
+    first_choice = types.KeyboardButton('Начать заново.')
     markup.add(first_choice)
     audio = open('Orlandina.mp3', 'rb')
     bot.send_audio(message.from_user.id, audio)
@@ -283,7 +283,7 @@ def game(message):
 @bot.message_handler(regexp='Перекреститься и убежать домой, не оплатив покупки.')
 def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    first_choice = types.KeyboardButton('Начать заного.')
+    first_choice = types.KeyboardButton('Начать заново.')
     markup.add(first_choice)
     audio = open('Orlandina.mp3', 'rb')
     bot.send_audio(message.from_user.id, audio)
@@ -310,7 +310,7 @@ def game(message):
 @bot.message_handler(regexp='Отправиться на кассу.')
 def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    first_choice = types.KeyboardButton('Начать заного.')
+    first_choice = types.KeyboardButton('Начать заново.')
     markup.add(first_choice)
     audio = open('toska.mp3', 'rb')
     bot.send_audio(message.from_user.id, audio)
@@ -325,7 +325,7 @@ def game(message):
     audio = open('pjaterka.mp3', 'rb')
     bot.send_audio(message.from_user.id, audio)
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    choice = types.KeyboardButton('Начать заного.')
+    choice = types.KeyboardButton('Начать заново.')
     markup.add(choice)
     bot.reply_to(message, '<i>И вот у тебя уже есть все что нужно. До прекрасного ужина осталось всего ничего. '
                           'Ты проходишь на кассу, девушка улыбается тебе и радушно приветствует. Пока она пробивает '
@@ -335,8 +335,7 @@ def game(message):
                           'воздух, а дальше... А дальше решать тебе.</i>', reply_markup=markup)
 
 
-
-@bot.message_handler(regexp='Начать заного.')
+@bot.message_handler(regexp='Начать заново.')
 def start_game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     first_choice = types.KeyboardButton('Ах, да! Дома же совсем нет еды!')
