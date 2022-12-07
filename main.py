@@ -66,7 +66,7 @@ def game(message):
 def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     first_choice = types.KeyboardButton('Закусывать.')
-    second_choice = types.KeyboardButton('Запивать')
+    second_choice = types.KeyboardButton('Запивать.')
     markup.add(first_choice, second_choice)
     bot.reply_to(message, 'Ха! Так я себе и поверил!\n'
                           '<i>Говоришь ты вслух и протягиваешь руку за виски.</i>\n'
@@ -80,7 +80,7 @@ def game(message):
     second_choice = types.KeyboardButton('Взять творог, сметану и идти дальше.')
     markup.add(first_choice, second_choice)
     bot.reply_to(message, 'Ай, нет. Все-таки не стоит. Пойду я, пожалуй, возьму творог со сметанкой'
-                          '.\n<i>Спустя минуту, ты в молочном отделе. Недалеко от тебя девушка стоит в слезах'
+                          '.\n<i>Спустя минуту, ты в молочном отделе. Недалеко от тебя девушка стоит в слезах</i>'
                           '', reply_markup=markup)
 
 
@@ -93,7 +93,7 @@ def game(message):
     audio = open("deathOze.mp3", 'rb')
     bot.send_audio(message.from_user.id, audio)
     bot.reply_to(message, '<i>Ты все ещё стоишь пред ликом овощей, не в силах оторвать паникующих глаз '
-                          'от такого неправдоподобного разнообразия. Ты пытаешься сдинуться с места, но они словно'
+                          'от такого неправдоподобного разнообразия. Ты пытаешься сдинуться с места, но они словно '
                           'овладели тобой и смотрят прямо в душу.</i>\n'
                           '- Господи, ты ли это?..', reply_markup=markup)
 
@@ -181,10 +181,26 @@ def game(message):
     second_choice = types.KeyboardButton('Тьфу. Это уже перебор!')
     markup.add(first_choice, second_choice)
     bot.reply_to(message, 'Отче наш, Иже еси на овощах!\nДа святится имя Твое,\nда приидет Царствие Твое,\n'
-                          'да будет воля Твоя,\nяко на офощах и на щах.\nХлеб наш насущный даждь нам днесь;\n'
+                          'да будет воля Твоя,\nяко на овощах и на щах.\nХлеб наш насущный даждь нам днесь;\n'
                           'и остави нам долги наша,\nякоже и мы оставляем должником нашим;\n'
                           'и не введи нас во искушение,\nно избави нас от лукаваго.\n'
                           'Ибо Твое есть Царство и сила и слава во веки.\n', reply_markup=markup)
+
+
+@bot.message_handler(regexp='Тьфу. Это уже перебор!')
+def game(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
+    first_choice = types.KeyboardButton('Начать заного.')
+    markup.add(first_choice)
+    audio = open('wolfgang.mp3', 'rb')
+    bot.send_audio(message.from_user.id, audio)
+    bot.reply_to(message, 'АААААААААА!!!!!!!!!\n <i>Это все, что успевает сорваться с твоих губ, и ты падаешь на земь. '
+                          'Вокруг тебя собираются тучи, гремит гром, но гремит он словно голос божества.</i>\n'
+                          '<b>Аз есмь брюква и морковка. Ты отказался внемлить мне. И за это не есть тебе овощей '
+                          'НИКОГДА!!!</b>\n<i>Эхом разносится ужасающее "НИКОГДА". С глаз твоих стекают слёзы. Тучи '
+                          'расходятся.\n Не взяв ни единого продукта, ты убегаешь домой. И до самого конца жизни ты так'
+                          ' и не съешь ни единого овоща. Лишь на смертном одре, к тебе снизойдет капуста. И вкусив её, '
+                          'ты поймешь - это Его прощение...</i>', reply_markup=markup)
 
 
 @bot.message_handler(regexp='Аминь.')
@@ -245,8 +261,8 @@ def game(message):
     first_choice = types.KeyboardButton('Ну тут уж извиняй, теперь не убежать.')
     markup.add(first_choice)
     bot.reply_to(message, 'Ах как хочу тебя обнять я\nПоцеловать рукав от платья\nНу, так приди в мои объятья... '
-                          '<i>И в этот миг\nШерстью покрылся лоб девичий\nКрасен стал глаз, а голос птичий\nИ '
-                          'волчий лик, меня чудовище схватило\nИ сладострастно испустило мерзостный крик</n>'
+                          '<i>\nИ в этот миг\nШерстью покрылся лоб девичий\nКрасен стал глаз, а голос птичий\nИ '
+                          'волчий лик, меня чудовище схватило\nИ сладострастно испустило мерзостный крик</i>'
                           '', reply_markup=markup)
 
 
@@ -269,7 +285,9 @@ def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     first_choice = types.KeyboardButton('Начать заного.')
     markup.add(first_choice)
-    bot.reply_to(message, '<i>Ты сумел убежать от дьявола. А все потому, что слушаешь АукцЫон.</i>'
+    audio = open('Orlandina.mp3', 'rb')
+    bot.send_audio(message.from_user.id, audio)
+    bot.reply_to(message, '<i>Ты сумел убежать от дьявола. А все потому что знаешь текст песни)).</i>'
                           '', reply_markup=markup)
 
 
@@ -284,7 +302,7 @@ def game(message):
 @bot.message_handler(regexp='Пойти взять апельсиновый сок.')
 def game(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    first_choice = types.KeyboardButton('Отправиться на кассу.')
+    first_choice = types.KeyboardButton('На кассу.')
     markup.add(first_choice)
     bot.reply_to(message, 'Ну, кажется, мне пока больше ничего не нужно.', reply_markup=markup)
 
@@ -300,6 +318,22 @@ def game(message):
                           ' чувствуешь себя свободным. Сегодня ты разрешил себе отдохнуть. Скоро ты будешь дома. '
                           'Позвонишь парочке близких друзей. Они приедут, и вы просто приятно проведёте время...</i>'
                           '', reply_markup=markup)
+
+
+@bot.message_handler(regexp='На кассу.')
+def game(message):
+    audio = open('pjaterka.mp3', 'rb')
+    bot.send_audio(message.from_user.id, audio)
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
+    choice = types.KeyboardButton('Начать заного.')
+    markup.add(choice)
+    bot.reply_to(message, '<i>И вот у тебя уже есть все что нужно. До прекрасного ужина осталось всего ничего. '
+                          'Ты проходишь на кассу, девушка улыбается тебе и радушно приветствует. Пока она пробивает '
+                          'товары, у вас завязывается легкий и непринужденный разговор. Все это кажется весьма '
+                          'интересным настолько, что вы обмениваетесь номерами и договариваетесь как-нибудь пообщаться'
+                          ' в более непринуждённой обстановке.\nТы выходишь на улицу, вдыхаешь прохладный вечерний '
+                          'воздух, а дальше... А дальше решать тебе.</i>', reply_markup=markup)
+
 
 
 @bot.message_handler(regexp='Начать заного.')
